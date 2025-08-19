@@ -1,0 +1,745 @@
+@prefix odc: <http://example.org/odc#> .
+@prefix odp: <http://example.org/odp#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+odp:armCircumference a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Périmètre brachial"@fr .
+
+odp:associatedFaculty a owl:DatatypeProperty ;
+    rdfs:domain odc:Hospital ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Est CHU"@fr ;
+    rdfs:comment "Indique si l’hôpital est un Centre Hospitalier Universitaire (CHU) : true pour oui, false pour non."@fr .
+
+odp:birthDate a owl:DatatypeProperty ;
+    rdfs:domain odc:Newborn ;
+    rdfs:range xsd:date ;
+    rdfs:label "Date de naissance"@fr ;
+    rdfs:comment "Date à laquelle le nouveau-né est né."@fr .
+
+odp:birthLength a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Taille à la naissance"@fr ;
+    rdfs:comment "Longueur du nouveau-né mesurée à la naissance"@fr .
+
+odp:birthPlace a owl:DatatypeProperty ;
+    rdfs:domain odc:Newborn ;
+    rdfs:range xsd:string ;
+    rdfs:label "Lieu de naissance"@fr .
+
+odp:birthTime a owl:DatatypeProperty ;
+    rdfs:domain odc:Newborn ;
+    rdfs:range xsd:time ;
+    rdfs:label "Heure de naissance"@fr ;
+    rdfs:comment "Heure précise à laquelle le nouveau-né est né."@fr .
+
+odp:birthWeight a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Poids de naissance"@fr ;
+    rdfs:comment "Poids du nouveau-né mesuré à la naissance, exprimé en grammes."@fr .
+
+odp:cat a owl:DatatypeProperty ;
+    rdfs:domain odc:Recommendation ;
+    rdfs:range xsd:string ;
+    rdfs:label "Conduite à tenir"@fr ;
+    rdfs:comment "Indique la conduite à tenir ou recommandation à suivre suite à l'interprétation des résultats."@fr .
+
+odp:centerType a owl:DatatypeProperty ;
+    rdfs:domain odc:HealthCenter ;
+    rdfs:range xsd:string ;
+    rdfs:label "Type de centre"@fr ;
+    rdfs:comment "Spécifie le type du centre de santé, par exemple urbain, rural, spécialisé, etc."@fr .
+
+odp:code a owl:DatatypeProperty ;
+    rdfs:domain odc:BiologicalResult ;
+    rdfs:range xsd:string ;
+    rdfs:label "Code"@fr ;
+    rdfs:comment "Code unique identifiant un résultat biologique spécifique."@fr .
+
+odp:comment a owl:DatatypeProperty ;
+    rdfs:domain odc:Interpretation ;
+    rdfs:range xsd:string ;
+    rdfs:label "Commentaire"@fr ;
+    rdfs:comment "Explication ou observation détaillée relative à l’interprétation des résultats biologiques."@fr .
+
+odp:criterion a owl:DatatypeProperty ;
+    rdfs:domain odc:RiskProfile ;
+    rdfs:range xsd:string ;
+    rdfs:label "Critère"@fr ;
+    rdfs:comment "Facteur ou condition pris en compte pour évaluer le profil de risque du nouveau-né."@fr .
+
+odp:cyanosis a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Cyanose (oui/non)"@fr ;
+    rdfs:comment "Indique la présence (true) ou l'absence (false) de cyanose chez le nouveau-né."@fr .
+
+odp:dailySampleOrderNumber a owl:DatatypeProperty ;
+    rdfs:domain odc:Sample ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Numéro d'ordre du prélèvement quotidien"@fr ;
+    rdfs:comment "Numéro séquentiel attribué à chaque prélèvement effectué dans la journée."@fr .
+
+odp:description a owl:DatatypeProperty ;
+    rdfs:domain odc:BiologicalResult ;
+    rdfs:range xsd:string ;
+    rdfs:label "Description du résultat biologique"@fr ;
+    rdfs:comment "Texte décrivant les caractéristiques ou observations liées au résultat biologique."@fr .
+
+odp:diseaseType a owl:DatatypeProperty ;
+    rdfs:domain odc:Disease ;
+    rdfs:range xsd:string ;
+    rdfs:label "Type de maladie"@fr ;
+    rdfs:comment "Indique la catégorie ou la nature de la maladie (ex. : génétique, infectieuse, métabolique, etc.)."@fr .
+
+odp:email a owl:DatatypeProperty ;
+    rdfs:domain odc:Parent ;
+    rdfs:range xsd:string ;
+    rdfs:label "Adresse email"@fr .
+
+odp:ethnicity a owl:DatatypeProperty ;
+    rdfs:domain odc:Parent ;
+    rdfs:range xsd:string ;
+    rdfs:label "Ethnie"@fr ;
+    rdfs:comment "Indique l'origine ethnique du parent"@fr .
+
+odp:fetalDistress a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Souffrance fœtale (oui/non)"@fr ;
+    rdfs:comment "Indique si des signes de souffrance fœtale ont été observés avant ou pendant l'accouchement."@fr .
+
+odp:firstName a owl:DatatypeProperty ;
+    rdfs:domain odc:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Prénom"@fr ;
+    rdfs:comment "Prénom de la personne concernée."@fr .
+
+odp:generates a owl:ObjectProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range odc:RiskProfile ;
+    rdfs:label "génère"@fr ;
+    rdfs:comment "Indique que les données clés génèrent un profil de risque."@fr .
+
+odp:gestationalAge a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:string ;
+    rdfs:label "Âge gestationnel"@fr ;
+    rdfs:comment "Âge gestationnel du nouveau-né : Prématuré, Terme, ou Dépassement de terme."@fr .
+
+odp:handles a owl:ObjectProperty ;
+    rdfs:domain odc:Technique ;
+    rdfs:range odc:Sample ;
+    rdfs:label "manipule"@fr ;
+    rdfs:comment "Indique que la technique manipule ou traite un échantillon."@fr .
+
+odp:hasKeyData a owl:ObjectProperty ;
+    rdfs:domain odc:Newborn ;
+    rdfs:range odc:KeyData ;
+    rdfs:label "a pour donnée clé"@fr ;
+    rdfs:comment "Associe un nouveau-né à ses données clés mesurées à la naissance, comme le poids, la taille, etc."@fr .
+
+odp:hasParentHistory a owl:ObjectProperty ;
+    rdfs:domain odc:Newborn ;
+    rdfs:range odc:Parent ;
+    rdfs:label "a pour antécédent parental"@fr ;
+    rdfs:comment "Indique le lien entre un nouveau-né et ses parents afin de prendre en compte les antécédents familiaux dans le processus de dépistage."@fr .
+
+odp:headCircumference a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Périmètre crânien"@fr ;
+    rdfs:comment "Mesure du périmètre de la tête du nouveau-né en centimètres."@fr .
+
+odp:statusParent a owl:DatatypeProperty ;
+    rdfs:domain odc:Parent ;
+    rdfs:range xsd:string ;
+    rdfs:label "Statut médical du parent"@fr ;
+    rdfs:comment "Indique le statut de santé ou la présence éventuelle d'une maladie chez le parent, par exemple 'Sain', 'Porteur sain', 'Atteint de drépanocytose'."@fr .
+
+odp:hospitalBased a owl:DatatypeProperty ;
+    rdfs:domain odc:Laboratory ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "est rattaché à un hôpital"@fr ;
+    rdfs:comment "Indique si le laboratoire est rattaché à un hôpital (CHU ou autre structure hospitalière)."@fr .
+
+odp:involves a owl:ObjectProperty ;
+    rdfs:domain odc:Screening ;
+    rdfs:range odc:ScreeningProcess ;
+    rdfs:label "implique"@fr ;
+    rdfs:comment "Indique que le dépistage implique un ou plusieurs processus de dépistage."@fr .
+
+odp:isCollectedFrom a owl:ObjectProperty ;
+    rdfs:domain odc:Sample ;
+    rdfs:range odc:Newborn ;
+    rdfs:label "prélevé de"@fr ;
+    rdfs:comment "Indique que l’échantillon biologique est prélevé sur un nouveau-né."@fr .
+
+odp:jaundice a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:string ;
+    rdfs:label "Ictère (oui/non)"@fr ;
+    rdfs:comment "Indique la présence (true) ou l'absence (false) d'ictère chez le nouveau-né."@fr .
+
+odp:labType a owl:DatatypeProperty ;
+    rdfs:domain odc:Laboratory ;
+    rdfs:range xsd:string ;
+    rdfs:label "type de laboratoire"@fr ;
+    rdfs:comment "Type de laboratoire (par exemple : polyvalent ou spécialisé)."@fr .
+
+odp:lastName a owl:DatatypeProperty ;
+    rdfs:domain odc:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Nom de famille"@fr ;
+    rdfs:comment "Nom de famille de la personne."@fr .
+
+odp:leadsTo a owl:ObjectProperty ;
+    rdfs:domain odc:ScreeningProcess ;
+    rdfs:range odc:Recommendation ;
+    rdfs:label "Conduit à"@fr ;
+    rdfs:comment "Lien indiquant que le processus de dépistage conduit à une recommandation."@fr .
+
+odp:level a owl:DatatypeProperty ;
+    rdfs:domain odc:HealthFacility ;
+    rdfs:range xsd:string ;
+    rdfs:label "Niveau"@fr ;
+    rdfs:comment "Niveau de l’établissement de santé (ex: primaire, secondaire, tertiaire)."@fr .
+
+odp:location a owl:DatatypeProperty ;
+    rdfs:domain odc:HealthFacility ;
+    rdfs:range xsd:string ;
+    rdfs:label "Localisation"@fr ;
+    rdfs:comment "Emplacement géographique de l’établissement de santé."@fr .
+
+odp:name a owl:DatatypeProperty ;
+    rdfs:domain odc:Disease,
+        odc:HealthFacility,
+        odc:Technique ;
+    rdfs:range xsd:string ;
+    rdfs:label "Nom"@fr ;
+    rdfs:comment "Nom de la maladie, de l’établissement de santé ou de la technique."@fr .
+
+odp:numberOfFetuses a owl:DatatypeProperty ;
+    rdfs:domain odc:KeyData ;
+    rdfs:range xsd:string ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Nombre de fœtus"@fr ;
+    rdfs:comment "Indique le nombre de fœtus lors de la grossesse (ex. 1 pour grossesse simple, 2 pour jumeaux)."@fr .
+
+odp:performedOn a owl:ObjectProperty ;
+    rdfs:domain odc:ScreeningProcess ;
+    rdfs:range odc:Sample ;
+    rdfs:label "Réalisé sur"@fr ;
+    rdfs:comment "Échantillon sur lequel le processus de dépistage est réalisé."@fr .
+
+odp:permanentAddress a owl:DatatypeProperty ;
+    rdfs:domain odc:Parent ;
+    rdfs:range xsd:string ;
+    rdfs:label "Adresse permanente"@fr ;
+    rdfs:comment "Adresse résidentielle permanente du parent."@fr .
+
+odp:phone a owl:DatatypeProperty ;
+    rdfs:domain odc:Parent ;
+    rdfs:range xsd:string ;
+    rdfs:label "Numéro de téléphone"@fr .
+
+odp:produces a owl:ObjectProperty ;
+    rdfs:domain odc:ScreeningProcess ;
+    rdfs:range odc:BiologicalResult ;
+    rdfs:label "Produit"@fr ;
+    rdfs:comment "Résultat biologique produit par le processus de dépistage."@fr .
+
+odp:purpose a owl:DatatypeProperty ;
+    rdfs:domain odc:Technique ;
+    rdfs:range xsd:string ;
+    rdfs:label "But (intention)"@fr ;
+    rdfs:comment "Objectif ou but de la technique utilisée."@fr .
+
+odp:registerNumber a owl:DatatypeProperty ;
+    rdfs:domain odc:Screening ;
+    rdfs:range xsd:string ;
+    rdfs:label "Numéro de registre"@fr ;
+    rdfs:comment "Numéro d’enregistrement du dépistage."@fr .
+
+odp:require a owl:ObjectProperty ;
+    rdfs:domain odc:BiologicalResult ;
+    rdfs:range odc:Interpretation ;
+    rdfs:label "Exige"@fr ;
+    rdfs:comment "Interprétation requise pour le résultat biologique."@fr .
+
+odp:resolution a owl:DatatypeProperty ;
+    rdfs:domain odc:Method ;
+    rdfs:range xsd:string ;
+    rdfs:label "Résolution"@fr .
+
+odp:result a owl:DatatypeProperty ;
+    rdfs:domain odc:Technique ;
+    rdfs:range xsd:string ;
+    rdfs:label "Résultat"@fr ;
+    rdfs:comment "Résultat produit par la technique."@fr .
+
+odp:robustness a owl:DatatypeProperty ;
+    rdfs:domain odc:Method ;
+    rdfs:range xsd:string ;
+    rdfs:label "Robustesse"@fr .
+
+odp:samplingDate a owl:DatatypeProperty ;
+    rdfs:domain odc:Sample ;
+    rdfs:range xsd:date ;
+    rdfs:label "Date de prélèvement"@fr ;
+    rdfs:comment "Date à laquelle l’échantillon a été prélevé."@fr .
+
+odp:samplingType a owl:DatatypeProperty ;
+    rdfs:domain odc:Sample ;
+    rdfs:range xsd:string ;
+    rdfs:label "Type de prélèvement"@fr ;
+    rdfs:comment "Type de prélèvement de l’échantillon."@fr .
+
+odp:score a owl:DatatypeProperty ;
+    rdfs:domain odc:RiskProfile ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Score"@fr ;
+    rdfs:comment "Score quantifiant le profil de risque."@fr .
+
+odp:screeningDate a owl:DatatypeProperty ;
+    rdfs:domain odc:ScreeningProcess ;
+    rdfs:range xsd:date ;
+    rdfs:label "Date du dépistage"@fr ;
+    rdfs:comment "Date à laquelle le dépistage a eu lieu."@fr .
+
+odp:selects a owl:ObjectProperty ;
+    rdfs:domain odc:Technique ;
+    rdfs:range odc:Method ;
+    rdfs:label "Sélectionne"@fr ;
+    rdfs:comment "Méthode sélectionnée par la technique."@fr .
+
+odp:sensitivity a owl:DatatypeProperty ;
+    rdfs:domain odc:Method ;
+    rdfs:range xsd:string ;
+    rdfs:label "Sensibilité"@fr .
+
+odp:sex a owl:DatatypeProperty ;
+    rdfs:domain odc:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Sexe"@fr ;
+    rdfs:comment "Sexe de la personne (ex: masculin, féminin)."@fr .
+
+odp:specificity a owl:DatatypeProperty ;
+    rdfs:domain odc:Method ;
+    rdfs:range xsd:string ;
+    rdfs:label "Spécificité"@fr .
+
+odp:status a owl:DatatypeProperty ;
+    rdfs:domain odc:Interpretation ;
+    rdfs:range xsd:string ;
+    rdfs:label "Statut médical du nouveau-né"@fr ;
+    rdfs:comment "Indique le statut de santé ou la présence éventuelle d'une maladie chez le nouveau-né, par exemple 'Sain', 'Porteur sain', 'Atteint de drépanocytose'."@fr .
+
+odp:takesPlaceAt a owl:ObjectProperty ;
+    rdfs:domain odc:Sample ;
+    rdfs:range odc:HealthFacility ;
+    rdfs:label "A lieu à"@fr ;
+    rdfs:comment "Établissement de santé où le prélèvement a eu lieu."@fr .
+
+odp:takesPlaceIn a owl:ObjectProperty ;
+    rdfs:domain odc:ScreeningProcess ;
+    rdfs:range odc:Laboratory ;
+    rdfs:label "A lieu dans"@fr ;
+    rdfs:comment "Laboratoire où se déroule le processus de dépistage."@fr .
+
+odp:targets a owl:ObjectProperty ;
+    rdfs:domain odc:Screening ;
+    rdfs:range odc:Disease ;
+    rdfs:label "Cible"@fr ;
+    rdfs:comment "Maladie ciblée par le dépistage."@fr .
+
+odp:temporaryAddress a owl:DatatypeProperty ;
+    rdfs:domain odc:Parent ;
+    rdfs:range xsd:string ;
+    rdfs:label "Adresse temporaire"@fr ;
+    rdfs:comment "Adresse temporaire du parent."@fr .
+
+odp:uses a owl:ObjectProperty ;
+    rdfs:domain odc:Screening ;
+    rdfs:range odc:Technique ;
+    rdfs:label "Utilise"@fr ;
+    rdfs:comment "Technique utilisée dans le cadre du dépistage."@fr .
+
+odc:BiologicalResult a owl:Class ;
+    rdfs:label "Résultat biologique"@fr ;
+    rdfs:comment "Résultat obtenu suite à l’analyse d’un échantillon biologique."@fr ;
+    owl:disjointWith odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Disease a owl:Class ;
+    rdfs:label "Maladie"@fr ;
+    rdfs:comment "Affection ou trouble affectant la santé d’un individu."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:HealthCenter a owl:Class ;
+    rdfs:subClassOf odc:HealthFacility ;
+    rdfs:label "Centre de santé"@fr ;
+    rdfs:comment "Établissement de santé assurant des soins de santé primaires."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:HealthFacility a owl:Class ;
+    rdfs:label "Établissement de santé"@fr ;
+    rdfs:comment "Structure dans laquelle sont assurés les soins de santé, comme les hôpitaux et les centres de santé."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Hospital a owl:Class ;
+    rdfs:subClassOf odc:HealthFacility ;
+    rdfs:label "Hôpital"@fr ;
+    rdfs:comment "Établissement de santé de haut niveau assurant des soins spécialisés."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Interpretation a owl:Class ;
+    rdfs:label "Interprétation"@fr ;
+    rdfs:comment "Analyse des résultats du dépistage pour déterminer la présence ou non d’un risque."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:KeyData a owl:Class ;
+    rdfs:label "Donnée clé"@fr ;
+    rdfs:comment "Information essentielle pour l’évaluation du nouveau-né, comme le poids ou la taille à la naissance."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Laboratory a owl:Class ;
+    rdfs:subClassOf odc:HealthFacility ;
+    rdfs:label "Laboratoire"@fr ;
+    rdfs:comment "Structure spécialisée dans l’analyse d’échantillons biologiques."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Method a owl:Class ;
+    rdfs:label "Méthode"@fr ;
+    rdfs:comment "Façon spécifique d’appliquer une technique pour réaliser le dépistage."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Newborn a owl:Class ;
+    rdfs:subClassOf odc:Person ;
+    rdfs:label "Nouveau-né"@fr ;
+    rdfs:comment "Enfant né récemment."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Parent,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Parent a owl:Class ;
+    rdfs:subClassOf odc:Person ;
+    rdfs:label "Parent"@fr ;
+    rdfs:comment "Personne ayant un lien de parenté avec le nouveau-né."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Person a owl:Class ;
+    rdfs:label "Personne"@fr ;
+    rdfs:comment "Être humain participant au contexte du dépistage néonatal."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Recommendation a owl:Class ;
+    rdfs:label "Recommandation"@fr ;
+    rdfs:comment "Conduite à tenir proposée selon l’interprétation des résultats et le profil de risque."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:RiskProfile a owl:Class ;
+    rdfs:label "Profil de risque"@fr ;
+    rdfs:comment "Évaluation globale du risque que présente un nouveau-né selon ses données et résultats."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Sample a owl:Class ;
+    rdfs:label "Échantillon"@fr ;
+    rdfs:comment "Prélèvement biologique réalisé pour permettre le dépistage (ex: sang, salive)."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Screening,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:Screening a owl:Class ;
+    rdfs:label "Dépistage"@fr ;
+    rdfs:comment "Acte médical visant à détecter précocement certaines pathologies chez le nouveau-né."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:ScreeningProcess,
+        odc:Technique .
+
+odc:ScreeningProcess a owl:Class ;
+    rdfs:label "Processus de dépistage"@fr ;
+    rdfs:comment "Cadre global dans lequel se déroule le dépistage néonatal, incluant les techniques, méthodes, étapes et interprétations."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:Technique .
+
+odc:Technique a owl:Class ;
+    rdfs:label "Technique"@fr ;
+    rdfs:comment "Procédé ou méthode employé dans le cadre du dépistage (ex: Electrophorese, Spectrométrie)."@fr ;
+    owl:disjointWith odc:BiologicalResult,
+        odc:Disease,
+        odc:HealthCenter,
+        odc:HealthFacility,
+        odc:Hospital,
+        odc:Interpretation,
+        odc:KeyData,
+        odc:Laboratory,
+        odc:Method,
+        odc:Newborn,
+        odc:Parent,
+        odc:Person,
+        odc:Recommendation,
+        odc:RiskProfile,
+        odc:Sample,
+        odc:Screening,
+        odc:ScreeningProcess .

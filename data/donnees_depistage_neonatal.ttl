@@ -1,0 +1,187 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix odc: <http://example.org/ontology/depistage#> .
+@prefix odp: <http://example.org/property/depistage#> .
+@prefix odr: <http://example.org/resource/depistage#> .
+
+# ===== Nouveau-nés
+odr:Newborn_001 rdf:type odc:Newborn ;
+    odp:firstName "Amina" ;
+    odp:lastName "Ba" ;
+    odp:sex "Female" ;
+    odp:birthDate "2025-07-20"^^xsd:date ;
+    odp:birthTime "12:45:00" ;
+    odp:birthPlace "Dakar" ;
+    odp:hasParentHistory odr:Parent_001 ;
+    odp:hasKeyData odr:KeyData_001 .
+
+odr:Newborn_002 rdf:type odc:Newborn ;
+    odp:firstName "Moussa" ;
+    odp:lastName "Diop" ;
+    odp:sex "Male" ;
+    odp:birthDate "2025-07-21"^^xsd:date ;
+    odp:birthTime "04:15:00" ;
+    odp:birthPlace "Thiès" ;
+    odp:hasParentHistory odr:Parent_002 ;
+    odp:hasKeyData odr:KeyData_002 .
+
+# ===== Parents
+odr:Parent_001 rdf:type odc:Parent ;
+    odp:firstName "Fatou" ;
+    odp:lastName "Fall" ;
+    odp:phone "221771234567" ;
+    odp:ethnicity "Wolof" ;
+    odp:email "fatou@example.com" ;
+    odp:temporaryAddress "Parcelles Assainies" ;
+    odp:permanentAddress "Ziguinchor" ;
+    odp:hemoglobinopathyStatus "AA" .
+
+odr:Parent_002 rdf:type odc:Parent ;
+    odp:firstName "Mamadou" ;
+    odp:lastName "Ba" ;
+    odp:phone "221772223344" ;
+    odp:ethnicity "Peulh" ;
+    odp:email "mamadou.ba@example.com" ;
+    odp:temporaryAddress "Guédiawaye" ;
+    odp:permanentAddress "Kolda" ;
+    odp:hemoglobinopathyStatus "AS" .
+
+
+# ===== KeyData
+odr:KeyData_001 rdf:type odc:KeyData ;
+    odp:birthWeight "3200" ;
+    odp:headCircumference "34" ;
+    odp:armCircumference "11" ;
+    odp:birthLength "49" ;
+    odp:gestationalAge "39" ;
+    odp:numberOfFetuses "1" ;
+    odp:fetalDistress "false" ;
+    odp:jaundice "false" ;
+    odp:cyanosis "false" ;
+    odp:generates odr:RiskProfile_001 .
+
+
+odr:KeyData_002 rdf:type odc:KeyData ;
+    odp:birthWeight "2500" ;
+    odp:headCircumference "31" ;
+    odp:armCircumference "9" ;
+    odp:birthLength "45" ;
+    odp:gestationalAge "36" ;
+    odp:numberOfFetuses "2" ;
+    odp:fetalDistress "true" ;
+    odp:jaundice "true" ;
+    odp:cyanosis "true" ;
+    odp:generates odr:RiskProfile_002 .
+
+
+# ===== Profil de risque
+odr:RiskProfile_001 rdf:type odc:RiskProfile ;
+    odp:score "0.25"^^xsd:decimal ;
+    odp:criterion "Poids faible + historique familial" .
+
+odr:RiskProfile_002 rdf:type odc:RiskProfile ;
+    odp:score "0.65"^^xsd:decimal ;
+    odp:criterion "Jumeaux + antécédents drépanocytose" .
+
+# ===== Échantillons
+odr:Sample_001 rdf:type odc:Sample ;
+    odp:samplingDate "2025-07-21"^^xsd:date ;
+    odp:samplingType "Sang sur papier buvard" ;
+    odp:dailySampleOrderNumber 1 ;
+    odp:isCollectedFrom odr:Newborn_001 ;
+    odp:takesPlaceAt odr:HealthFacility_001 .
+
+odr:Sample_002 rdf:type odc:Sample ;
+    odp:samplingDate "2025-07-22"^^xsd:date ;
+    odp:samplingType "Sang veineux" ;
+    odp:dailySampleOrderNumber 2 ;
+    odp:isCollectedFrom odr:Newborn_002 ;
+    odp:takesPlaceAt odr:HealthFacility_002 .
+
+# ===== Centres de santé
+odr:HealthFacility_001 rdf:type odc:HealthFacility ;
+    odp:name "Centre de Santé de Pikine" ;
+    odp:level "Tertiaire" ;
+    odp:location "Pikine, Dakar" .
+
+odr:HealthFacility_002 rdf:type odc:HealthFacility ;
+    odp:name "Poste de Santé de Thiès" ;
+    odp:level "Primaire" ;
+    odp:location "Thiès Nord" .
+
+# ===== Hôpital
+odr:Hospital_001 rdf:type odc:Hospital ;
+    odp:name "Hôpital Dalal Jamm" ;
+    odp:level "Tertiaire" ;
+    odp:location "Guédiawaye" ;
+    odp:associatedFaculty "FMPO UCAD" .
+
+# ===== Centre de santé 
+odr:HealthCenter_001 rdf:type odc:HealthCenter ;
+    odp:name "CS de Rufisque" ;
+    odp:level "Secondaire" ;
+    odp:location "Rufisque" ;
+    odp:centerType "Urbain" .
+
+# ===== Laboratoire
+odr:Laboratory_001 rdf:type odc:Laboratory ;
+    odp:name "CERAPAD" ;
+    odp:level "Tertiaire" ;
+    odp:location "Dakar" ;
+    odp:labType "Spécialisé" ;
+    odp:hospitalBased "true" .
+
+# ===== Dépistage
+odr:Screening_001 rdf:type odc:Screening ;
+    odp:registerNumber "REG2025-001" ;
+    odp:targets odr:Disease_001 ;
+    odp:uses odr:Technique_001 ;
+    odp:involves odr:ScreeningProcess_001 .
+
+# ===== Processus de dépistage
+odr:ScreeningProcess_001 rdf:type odc:ScreeningProcess ;
+    odp:performedOn odr:Sample_001 ;
+    odp:leadsTo odr:Recommendation_001 ;
+    odp:screeningDate "2025-07-23"^^xsd:date ;
+    odp:takesPlaceIn odr:Laboratory_001 ;
+    odp:produces odr:BiologicalResult_001 .
+
+# ===== Résultat biologique
+odr:BiologicalResult_001 rdf:type odc:BiologicalResult ;
+    odp:description "Taux élevé de marqueur X" ;
+    odp:code "BR001" ;
+    odp:require odr:Interpretation_001 .
+
+# ===== Interprétation
+odr:Interpretation_001 rdf:type odc:Interpretation ;
+    odp:status "Anormal" ;
+    odp:comment "Présence d'Hb S détectée" .
+
+# ===== Recommandation
+odr:Recommendation_001 rdf:type odc:Recommendation ;
+    rdfs:label "Orientation vers consultation génétique"@fr ;
+    rdfs:comment "Le nouveau-né doit être suivi dans une unité spécialisée pour analyse complémentaire."@fr .
+
+# ===== Technique
+odr:Technique_001 rdf:type odc:Technique ;
+    odp:name "Electrophorèse capillaire" ;
+    odp:purpose "Détection de l'hémoglobine anormale" ;
+    odp:result "Présence d'HbS" ;
+    odp:handles odr:Sample_001 ;
+    odp:selects odr:Method_001 .
+
+# ===== Méthode
+odr:Method_001 rdf:type odc:Method ;
+    odp:sensitivity "95%" ;
+    odp:specificity "98%" ;
+    odp:robustness "Élevée" ;
+    odp:resolution "Haute" .
+
+# ===== Maladie
+odr:Disease_001 rdf:type odc:Disease ;
+    odp:name "Drépanocytose" ;
+    odp:diseaseType "Hémoglobinopathie" .
+
