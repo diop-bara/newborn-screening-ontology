@@ -1,4 +1,4 @@
-# 🧬 Ontology for Newborn Screening
+# Ontology for Newborn Screening
 
 ## 📌 Prerequisites
 
@@ -28,7 +28,7 @@ Before running the project, make sure you have:
 ---
 
 ### 2. Clone the repository
-Clone and navigate into the directory
+Open a terminal in the desired directory, clone the repository, and navigate into the directory.
 ```bash
 git clone https://github.com/diop-bara/newborn-screening-ontology.git
 cd newborn-screening-ontology
