@@ -16,17 +16,23 @@ Before running the project, make sure you have:
 
 ## 📌 Usage
 
-### 1. Clone the repository
+### 1. Installation of GraphDB and Data Import
+- Download and install GraphDB (with the license).
+- Open GraphDB and register the license.
+- Create a new repository named `screening_ontology`.
+- Select the repository `screening_ontology`.
+- Import the data.
+  
+  👉 For more details, refer to images 1 to 12.
+
+---
+
+### 2. Clone the repository
+Clone and navigate into the directory
 ```bash
 git clone https://github.com/diop-bara/newborn-screening-ontology.git
 cd newborn-screening-ontology
 ```
-
----
-
-### 2. Import the ontology and data
-- Import the ontology and the files in the [`data/`](./data) folder into **GraphDB**.  
-- Refer to [`parametres_importation.png`](./parametres_importation.png) for import settings.  
 
 ---
 
